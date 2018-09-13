@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[github 发布文章错误收集]]></title>
+    <url>%2F2018%2F09%2F12%2Fgithub-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E9%94%99%E8%AF%AF%E6%94%B6%E9%9B%86%2F</url>
+    <content type="text"><![CDATA[Unable to create ndex.lock之前因为这个错误什么都改不了，终于找到这个bug: FATAL Something’s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.htmlError: fatal: Unable to create ‘D:/hexo/blog/.deploy_git/.git/index.lock’: File exists. 可能是之前在git没有运行完成的时候强制关闭，下次提交的时候产生的错误 找.deploy_git 文件夹，进去可能没有.git ，打开隐藏文件，找 index文件 删除就好了。 YAMLException YAMLException ：can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1: 查看新建要上传地md文件，tags或者其他，与后面内容是不是有一个空格 也可以通过命令 hexo s –debug 在本地浏览器的localhost:4000 预览博文效果。写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[two-term]]></title>
+    <url>%2F2018%2F09%2F12%2Ftwo-term%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[one term]]></title>
+    <url>%2F2018%2F08%2F31%2Fone-term%2F</url>
+    <content type="text"><![CDATA[小学期第一波题A+B (I)Description：二进制加法T 组数据[1,10]；接下来 T 行，每行输入两个二进制串 a 和 b 中间用空格隔开，保证它们长度 a,b&lt;=1000 并且没有前导 0。 如 输入： 1↵ 11101 110↵ 输出 1234 11101+ 110-------- 100011 解析：由于是大数，不能先转化成十进制数，然后相加，再转化成二进制，应该直接进行数组加，字符输入，求长度，然后从最后开始加，用pp变量标记是否有进位，分情况讨论 0 1 pp ；如果一个算完了，就比较 另一个与pp的情况，输出看着复杂，精心写也就那样。记得情况讨论完全。 进车Description：进车座位12排，每排可以坐4人，中间有过道。但最后一排中间没有过道，所以可以坐5人，会坐在尽可能靠前的空位。如果同一排有多个位置，他们会统一坐在最左边的空位。车里已经有 k 个乘客了，如果能，他应该坐在哪？ 输入：9 输出： 12345678yes+--------------------------+|#.#.#.#.#.#.#.#.#.O.O.O.|D|)|#.#.#.#.#.#.#.#.#.X.O.O.|.||#.........................||#.#.#.#.#.#.#.#.#.#.O.O.|.||#.#.#.#.#.#.#.#.#.#.O.O.|.|)+--------------------------+ 解析：有个46位置麻烦，先解决，其他看成二维数组，先不要管后面的特殊字符D ，），进行模拟，本来是从右向左，从上向下；改变k的值，变成从左向右，从下向上，不变好像也行，用 n 记录数到第几个了]]></content>
+      <tags>
+        <tag>小学期第一波题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[atom use]]></title>
+    <url>%2F2018%2F08%2F19%2Fatom-use%2F</url>
+    <content type="text"><![CDATA[there will be same usage of atom. 预览快捷键 Shift + Ctrl + M]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[first]]></title>
+    <url>%2F2018%2F08%2F18%2Ffirst%2F</url>
+    <content type="text"><![CDATA[今天终于弄好了简单的GitHub的博客，但是好难看啊]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F08%2F17%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.hahah Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
