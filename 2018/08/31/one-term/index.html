@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="小学期第一波题A+B (I)Description：二进制加法T 组数据[1,10]；接下来 T 行，每行输入两个二进制串 a 和 b 中间用空格隔开，保证它们长度 a,b&amp;lt;=1000 并且没有前导 0。  如 输入：  1↵ 11101 110↵    输出  1234   11101+    110--------  100011 解析：由于是大数，不能先转化成十进制数，然后相加，再转化">
+<meta name="description" content="小学期第一波题A+B (I)Description：二进制加法T 组数据[1,10]；接下来 T 行，每行输入两个二进制串 a 和 b 中间用空格隔开，保证它们长度 a,b&amp;lt;=1000 并且没有前导 0。  如 输入：  1↵ 11101 110↵    输出  1234   11101+    110--------  100011">
 <meta name="keywords" content="小学期第一波题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="one term">
 <meta property="og:url" content="http://yoursite.com/2018/08/31/one-term/index.html">
 <meta property="og:site_name" content="lion-han">
-<meta property="og:description" content="小学期第一波题A+B (I)Description：二进制加法T 组数据[1,10]；接下来 T 行，每行输入两个二进制串 a 和 b 中间用空格隔开，保证它们长度 a,b&amp;lt;=1000 并且没有前导 0。  如 输入：  1↵ 11101 110↵    输出  1234   11101+    110--------  100011 解析：由于是大数，不能先转化成十进制数，然后相加，再转化">
+<meta property="og:description" content="小学期第一波题A+B (I)Description：二进制加法T 组数据[1,10]；接下来 T 行，每行输入两个二进制串 a 和 b 中间用空格隔开，保证它们长度 a,b&amp;lt;=1000 并且没有前导 0。  如 输入：  1↵ 11101 110↵    输出  1234   11101+    110--------  100011">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-10T17:25:46.531Z">
+<meta property="og:updated_time" content="2018-09-17T15:43:04.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="one term">
-<meta name="twitter:description" content="小学期第一波题A+B (I)Description：二进制加法T 组数据[1,10]；接下来 T 行，每行输入两个二进制串 a 和 b 中间用空格隔开，保证它们长度 a,b&amp;lt;=1000 并且没有前导 0。  如 输入：  1↵ 11101 110↵    输出  1234   11101+    110--------  100011 解析：由于是大数，不能先转化成十进制数，然后相加，再转化">
+<meta name="twitter:description" content="小学期第一波题A+B (I)Description：二进制加法T 组数据[1,10]；接下来 T 行，每行输入两个二进制串 a 和 b 中间用空格隔开，保证它们长度 a,b&amp;lt;=1000 并且没有前导 0。  如 输入：  1↵ 11101 110↵    输出  1234   11101+    110--------  100011">
 
 
 
@@ -341,6 +341,7 @@
 <li>11101 110↵    输出</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   <span class="number">11101</span></span><br><span class="line">+    <span class="number">110</span></span><br><span class="line">--------</span><br><span class="line">  <span class="number">100011</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h4><p>由于是大数，不能先转化成十进制数，然后相加，再转化成二进制，应该直接进行数组加，字符输入，求长度，然后从最后开始加，用pp变量标记是否有进位，分情况讨论 0 1 pp ；如果一个算完了，就比较 另一个与pp的情况，输出看着复杂，精心写也就那样。记得情况讨论完全。</p>
 <h3 id="进车"><a href="#进车" class="headerlink" title="进车"></a>进车</h3><h4 id="Description：进车座位"><a href="#Description：进车座位" class="headerlink" title="Description：进车座位"></a>Description：进车座位</h4><p>12排，每排可以坐4人，中间有过道。但最后一排中间没有过道，所以可以坐5人，会坐在尽可能<strong>靠前</strong>的空位。如果同一排有多个位置，他们会统一坐在<strong>最左边</strong>的空位。车里已经有 <strong>k</strong> 个乘客了，如果能，他应该坐在哪？</p>
 <p>输入：9</p>
@@ -483,7 +484,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

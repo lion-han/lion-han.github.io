@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="小学期第几波题," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="打包礼物Description：有k个礼物，如果两个礼物的体积满足小礼物的体积的两倍不超过大礼物的体积，那么小礼物可塞在大礼物里。同时**一个大礼物里最多只能塞一个其他小礼物，小礼物里可包含其他更小的礼物。如果小礼物被塞进大礼物里了，那么就不用再付小礼物的快递费了。如何使得最后剩下的礼物数量最少？ Input: 输入第一行有一个正整数 n，表示礼物的数量； 接下来一行共 n 个正整数，依次表示这些">
+<meta name="keywords" content="小学期第几波题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="two-term">
 <meta property="og:url" content="http://yoursite.com/2018/09/12/two-term/index.html">
 <meta property="og:site_name" content="lion-han">
+<meta property="og:description" content="打包礼物Description：有k个礼物，如果两个礼物的体积满足小礼物的体积的两倍不超过大礼物的体积，那么小礼物可塞在大礼物里。同时**一个大礼物里最多只能塞一个其他小礼物，小礼物里可包含其他更小的礼物。如果小礼物被塞进大礼物里了，那么就不用再付小礼物的快递费了。如何使得最后剩下的礼物数量最少？ Input: 输入第一行有一个正整数 n，表示礼物的数量； 接下来一行共 n 个正整数，依次表示这些">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-12T15:43:52.394Z">
+<meta property="og:updated_time" content="2018-09-17T16:20:21.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="two-term">
+<meta name="twitter:description" content="打包礼物Description：有k个礼物，如果两个礼物的体积满足小礼物的体积的两倍不超过大礼物的体积，那么小礼物可塞在大礼物里。同时**一个大礼物里最多只能塞一个其他小礼物，小礼物里可包含其他更小的礼物。如果小礼物被塞进大礼物里了，那么就不用再付小礼物的快递费了。如何使得最后剩下的礼物数量最少？ Input: 输入第一行有一个正整数 n，表示礼物的数量； 接下来一行共 n 个正整数，依次表示这些">
 
 
 
@@ -331,7 +335,21 @@
       
 
       
-        
+        <h3 id="打包礼物"><a href="#打包礼物" class="headerlink" title="打包礼物"></a>打包礼物</h3><h4 id="Description："><a href="#Description：" class="headerlink" title="Description："></a>Description：</h4><p>有k个礼物，如果两个礼物的体积满足<strong>小礼物的体积的两倍不超过大礼物的体积</strong>，那么小礼物可塞在大礼物里。同时**一个大礼物里最多只能塞一个其他小礼物，小礼物里可包含其他更小的礼物。如果小礼物被塞进大礼物里了，那么就不用再付小礼物的快递费了。如何使得最后剩下的礼物数量最少？</p>
+<p><strong>Input:</strong></p>
+<p>输入第一行有一个正整数 n，表示礼物的数量；</p>
+<p>接下来一行共 n 个正整数，依次表示这些礼物的体积 V ;</p>
+<a id="more"></a>
+<p><strong>Output</strong></p>
+<p>第一行输出一个正整数 p，表示安排后剩下的最少礼物数量。</p>
+<p>接下来 p 行，每行开头输入一个正整数 t，表示这个礼物里被塞进去的礼物总数量。接下来输入 t 个数，从前到后依次表示这些礼物的<strong>编号</strong>，按照体积<strong>从小到大</strong>排序。</p>
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">2 3 5 1 4</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2 1 3 </span><br><span class="line">2 4 5</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure>
+<h4 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h4><p>构造一个结构体，里边存的是编号，体积，和变量down(存下一个值)（初始化为-1）</p>
+<p>按体积由小到大进行排序，用两个变量i j从尾部向前遍历，先固定 i , 然后 j–, 如果 i 对应的礼物能包下 j 对应的礼物，让 i 的down 指向 j ，并给j 的down 赋<strong>-2</strong> （以为包含）跳出内层循环，下次接着上次的 j -1 (思考）。重复这个过程直到结束 然后输出。</p>
+
       
     </div>
     
@@ -345,6 +363,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小学期第几波题/" rel="tag"># 小学期第几波题</a>
+          
+        </div>
       
 
       
@@ -419,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -452,7 +485,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -478,6 +511,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打包礼物"><span class="nav-number">1.</span> <span class="nav-text">打包礼物</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Description："><span class="nav-number">1.1.</span> <span class="nav-text">Description：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解析："><span class="nav-number">1.2.</span> <span class="nav-text">解析：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
