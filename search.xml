@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[java 环境配置]]></title>
+    <url>%2F2018%2F09%2F24%2Fjava-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[1.新建一个文本文档，重命名为：HelloWorld.java（注意把.txt的后缀名改为.java）(此处我用sublime) 2.写入：类的名字HelloWorld必须和文档名相同 12345public class HelloWorld&#123; public static void main(String[] args)&#123; System.out.println(&quot;HelloWorld&quot;);//尽量不要有中文 &#125;&#125; 3.运行： PS F:> javac HelloWorld.javaPS F:> java HelloWorld.java错误: 找不到或无法加载主类 HelloWorld.java原因: java.lang.ClassNotFoundException: HelloWorld.javaPS F:> java HelloWorldHello World! 4.前提 配置环境变量： 在新建页面，输入变量名“JAVA_HOME”；变量值“你的jdk的路径（请参照下图，找到你的安装路径）”，然后点击“确定”； 选择“新建”，输入变量名“CLASSPATH”；（此步可省略） ​ 变量值：“.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;”。请注意 变量 值中，前面的“点“和”分号”； 找到Path，对其进行编辑：添加变量值的 变量值为 ;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; 打开cmd, 在命令行输入java –version；如果能显示java的版本信息，则表示配置成功。(也有可能还没成功) 5.编译原理简介第一步（编译）：创建完源文件之后，程序先要被JVM中的java编译器进行编译为.class文件，Javac 的任务就是将Java源代码编译成Java字节码。从表面看是将.java文件转化为.class文件。而实际上是将Java源代码转化成一连串二进制数字，这些二进制数字只有JVM能够准确的识别他们到底是什么。java编译一个类时，如果这个类所依赖的类还没有被编译，编译器会自动的先编译这个所依赖的类，然后引用。 第二步（运行）：java类运行的过程大概分为两个步骤：（1）类的加载 （2）类的执行。需要注意的是：JVM主要在程序第一次运行时主动使用类的 时候，才会立即去加载。JVM并不是在运行时就会把所有使用到的类都加载到内存中，而是用到，不得不加载的时候，才加载进来，而且只加载一次！]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[github 发布文章错误收集]]></title>
     <url>%2F2018%2F09%2F12%2Fgithub-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E9%94%99%E8%AF%AF%E6%94%B6%E9%9B%86%2F</url>
     <content type="text"><![CDATA[Unable to create ndex.lock之前因为这个错误什么都改不了，终于找到这个bug: FATAL Something’s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.htmlError: fatal: Unable to create ‘D:/hexo/blog/.deploy_git/.git/index.lock’: File exists. 可能是之前在git没有运行完成的时候强制关闭，下次提交的时候产生的错误 找.deploy_git 文件夹，进去可能没有.git ，打开隐藏文件，找 index文件 删除就好了。 YAMLException YAMLException ：can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1: 查看新建要上传地md文件，tags或者其他，与后面内容是不是有一个空格 也可以通过命令 hexo s –debug 在本地浏览器的localhost:4000 预览博文效果。写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页]]></content>

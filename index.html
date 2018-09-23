@@ -259,6 +259,146 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/java-环境配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wanghan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/lion-han.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lion-han">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/24/java-环境配置/" itemprop="url">java 环境配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-24T00:56:23+08:00">
+                2018-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.新建一个文本文档，重命名为：HelloWorld.java（注意把.txt的后缀名改为.java）(此处我用sublime)</p>
+<p>2.写入：<strong>类的名字HelloWorld必须和文档名相同</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		System.out.println(&quot;HelloWorld&quot;);//尽量不要有中文</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.运行：</p>
+<p>PS F:> javac HelloWorld.java<br>PS F:> java <strong>HelloWorld.java</strong><br>错误: 找不到或无法加载主类 HelloWorld.java<br>原因: java.lang.ClassNotFoundException: HelloWorld.java<br>PS F:> java <strong>HelloWorld</strong><br>Hello World!</p>
+<h4 id="4-前提-配置环境变量："><a href="#4-前提-配置环境变量：" class="headerlink" title="4.前提 配置环境变量："></a>4.前提 配置环境变量：</h4><ul>
+<li><p>在新建页面，输入变量名“<strong>JAVA_HOME</strong>”；变量值“你的jdk的路径（请参照下图，找到你的安装路径）”，然后点击“确定”；</p>
+</li>
+<li><p>选择“新建”，输入变量名“CLASSPATH”；（此步可省略）</p>
+</li>
+</ul>
+<p>​       变量值：“.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;”。请注意   变量    值中，前面的“点“和”分号”；</p>
+<ul>
+<li><p>找到Path，对其进行编辑：添加变量值的  变量值为      ;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; </p>
+</li>
+<li><p>打开cmd, 在命令行输入java –version；如果能显示java的版本信息，则表示配置成功。(也有可能还没成功)</p>
+</li>
+</ul>
+<h4 id="5-编译原理简介"><a href="#5-编译原理简介" class="headerlink" title="5.编译原理简介"></a>5.编译原理简介</h4><p>第一步（编译）：创建完源文件之后，程序先要被JVM中的java编译器进行编译为.class文件，Javac 的任务就是将Java源代码编译成Java字节码。从表面看是将.java文件转化为.class文件。而实际上是将Java源代码转化成一连串二进制数字，这些二进制数字只有JVM能够准确的识别他们到底是什么。java编译一个类时，如果这个类所依赖的类还没有被编译，编译器会自动的先编译这个所依赖的类，然后引用。</p>
+<p>第二步（运行）：java类运行的过程大概分为两个步骤：（1）类的加载 （2）类的执行。需要注意的是：JVM主要在程序第一次运行时主动使用类的</p>
+<p>时候，才会立即去加载。JVM并不是在运行时就会把所有使用到的类都加载到内存中，而是用到，不得不加载的时候，才加载进来，而且<strong>只加载一次</strong>！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/github-发布文章错误收集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1050,7 +1190,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1063,7 +1203,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
