@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[string 结构体赋值]]></title>
+    <url>%2F2018%2F09%2F30%2Fstring-%E7%BB%93%E6%9E%84%E4%BD%93%E8%B5%8B%E5%80%BC%2F</url>
+    <content type="text"><![CDATA[结构体中string赋值在进行一下操作时，下面一行调试出现错误，程序终止。 1234567891011121314151617181920212223242526typedef struct NODE&#123; string line; struct NODE *next; &#125; node;node *head;node *p,*q,*HEAD;main()&#123; char op; int n=0,num; p=(node*)malloc(sizeof(node)); p-&gt;next=NULL; HEAD=p; head=p; while(1) &#123; getline(cin,a); p = (node*)malloc(sizeof(node));//***** p-&gt;line=a; //出现错误！！！ ***************** head-&gt;next=p; p-&gt;next=NULL; head=p; n++; &#125;&#125; 由于：结构体内的string不定长，不能动态分配内存，需要用用new来分配内存 malloc只是分配内存。new除了分配内存还会调用构造函数的。 应将 1p = (node*)malloc(sizeof(node)); 改为 1p = new NODE;]]></content>
+      <tags>
+        <tag>c++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[java 环境配置]]></title>
     <url>%2F2018%2F09%2F24%2Fjava-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[1.新建一个文本文档，重命名为：HelloWorld.java（注意把.txt的后缀名改为.java）(此处我用sublime) 2.写入：类的名字HelloWorld必须和文档名相同 12345public class HelloWorld&#123; public static void main(String[] args)&#123; System.out.println(&quot;HelloWorld&quot;);//尽量不要有中文 &#125;&#125; 3.运行： PS F:> javac HelloWorld.javaPS F:> java HelloWorld.java错误: 找不到或无法加载主类 HelloWorld.java原因: java.lang.ClassNotFoundException: HelloWorld.javaPS F:> java HelloWorldHello World! 4.前提 配置环境变量： 在新建页面，输入变量名“JAVA_HOME”；变量值“你的jdk的路径（请参照下图，找到你的安装路径）”，然后点击“确定”； 选择“新建”，输入变量名“CLASSPATH”；（此步可省略） ​ 变量值：“.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;”。请注意 变量 值中，前面的“点“和”分号”； 找到Path，对其进行编辑：添加变量值的 变量值为 ;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; 打开cmd, 在命令行输入java –version；如果能显示java的版本信息，则表示配置成功。(也有可能还没成功) 5.编译原理简介第一步（编译）：创建完源文件之后，程序先要被JVM中的java编译器进行编译为.class文件，Javac 的任务就是将Java源代码编译成Java字节码。从表面看是将.java文件转化为.class文件。而实际上是将Java源代码转化成一连串二进制数字，这些二进制数字只有JVM能够准确的识别他们到底是什么。java编译一个类时，如果这个类所依赖的类还没有被编译，编译器会自动的先编译这个所依赖的类，然后引用。 第二步（运行）：java类运行的过程大概分为两个步骤：（1）类的加载 （2）类的执行。需要注意的是：JVM主要在程序第一次运行时主动使用类的 时候，才会立即去加载。JVM并不是在运行时就会把所有使用到的类都加载到内存中，而是用到，不得不加载的时候，才加载进来，而且只加载一次！]]></content>
