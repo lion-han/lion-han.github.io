@@ -259,6 +259,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/14/简单编辑器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wanghan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/lion-han.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lion-han">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/14/简单编辑器/" itemprop="url">简单编辑器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-14T00:30:11+08:00">
+                2018-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="简单编辑器"><a href="#简单编辑器" class="headerlink" title="简单编辑器"></a>简单编辑器</h3><h4 id="Description："><a href="#Description：" class="headerlink" title="Description："></a>Description：</h4><p>要开发一个字符界面的编辑器，对文本的编辑操作是通过输入一个一个的“行编辑命令”完成的。</p>
+<p><strong>系统约定</strong>： 行编辑命令由<strong>命令关键字 命令参数组</strong>成。其中，命令关键字都是单一的字母，命令与参数之间使用一个空格进行分割，当命令参数为多个时采用  <strong>/ </strong> 作为参数的分隔符，如果在命令的参数中间出现符号 <strong>/</strong> ，则用 <strong>\/</strong> 表示。我们将 <strong>/</strong>  定义为转义符。</p>
+<p><strong>行插入</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i #/串</span><br></pre></td></tr></table></figure>
+<p>在指定行号（&gt; 0）插入一个新行，新行的内容就是命令中给出的串。若插入的行超过了已有的行数，则在最后一行的后面插入一个新行。</p>
+<p><strong>文本替换</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c 被替换串/替换串</span><br></pre></td></tr></table></figure>
+<p>将整个文本中全部被替换串替换为替换串</p>
+<p><strong>行删除</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d #</span><br></pre></td></tr></table></figure>
+<p>其中#为指定的行号（不含#）</p>
+<p><strong>行合并：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f 1/2/3...</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/14/简单编辑器/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/string-结构体赋值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -456,30 +592,18 @@
 
       
         
-          
-            <p>1.新建一个文本文档，重命名为：HelloWorld.java（注意把.txt的后缀名改为.java）(此处我用sublime)</p>
+          <p>1.新建一个文本文档，重命名为：HelloWorld.java（注意把.txt的后缀名改为.java）(此处我用sublime)</p>
 <p>2.写入：<strong>类的名字HelloWorld必须和文档名相同</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		System.out.println(&quot;HelloWorld&quot;);//尽量不要有中文</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>3.运行：</p>
 <p>PS F:> javac HelloWorld.java<br>PS F:> java <strong>HelloWorld.java</strong><br>错误: 找不到或无法加载主类 HelloWorld.java<br>原因: java.lang.ClassNotFoundException: HelloWorld.java<br>PS F:> java <strong>HelloWorld</strong><br>Hello World!</p>
-<h4 id="4-前提-配置环境变量："><a href="#4-前提-配置环境变量：" class="headerlink" title="4.前提 配置环境变量："></a>4.前提 配置环境变量：</h4><ul>
-<li><p>在新建页面，输入变量名“<strong>JAVA_HOME</strong>”；变量值“你的jdk的路径（请参照下图，找到你的安装路径）”，然后点击“确定”；</p>
-</li>
-<li><p>选择“新建”，输入变量名“CLASSPATH”；（此步可省略）</p>
-</li>
-</ul>
-<p>​       变量值：“.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;”。请注意   变量    值中，前面的“点“和”分号”；</p>
-<ul>
-<li><p>找到Path，对其进行编辑：添加变量值的  变量值为      ;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; </p>
-</li>
-<li><p>打开cmd, 在命令行输入java –version；如果能显示java的版本信息，则表示配置成功。(也有可能还没成功)</p>
-</li>
-</ul>
-<h4 id="5-编译原理简介"><a href="#5-编译原理简介" class="headerlink" title="5.编译原理简介"></a>5.编译原理简介</h4><p>第一步（编译）：创建完源文件之后，程序先要被JVM中的java编译器进行编译为.class文件，Javac 的任务就是将Java源代码编译成Java字节码。从表面看是将.java文件转化为.class文件。而实际上是将Java源代码转化成一连串二进制数字，这些二进制数字只有JVM能够准确的识别他们到底是什么。java编译一个类时，如果这个类所依赖的类还没有被编译，编译器会自动的先编译这个所依赖的类，然后引用。</p>
-<p>第二步（运行）：java类运行的过程大概分为两个步骤：（1）类的加载 （2）类的执行。需要注意的是：JVM主要在程序第一次运行时主动使用类的</p>
-<p>时候，才会立即去加载。JVM并不是在运行时就会把所有使用到的类都加载到内存中，而是用到，不得不加载的时候，才加载进来，而且<strong>只加载一次</strong>！</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/24/java-环境配置/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1317,7 +1441,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

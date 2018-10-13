@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="小学期第几波题," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简单编辑器Description：要开发一个字符界面的编辑器，对文本的编辑操作是通过输入一个一个的“行编辑命令”完成的。 系统约定： 行编辑命令由命令关键字 命令参数组成。其中，命令关键字都是单一的字母，命令与参数之间使用一个空格进行分割，当命令参数为多个时采用  /  作为参数的分隔符，如果在命令的参数中间出现符号 / ，则用 \/ 表示。我们将 /  定义为转义符。 行插入： 1i #/串 在">
+<meta name="keywords" content="小学期第几波题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单编辑器">
+<meta property="og:url" content="http://yoursite.com/2018/10/14/简单编辑器/index.html">
+<meta property="og:site_name" content="lion-han">
+<meta property="og:description" content="简单编辑器Description：要开发一个字符界面的编辑器，对文本的编辑操作是通过输入一个一个的“行编辑命令”完成的。 系统约定： 行编辑命令由命令关键字 命令参数组成。其中，命令关键字都是单一的字母，命令与参数之间使用一个空格进行分割，当命令参数为多个时采用  /  作为参数的分隔符，如果在命令的参数中间出现符号 / ，则用 \/ 表示。我们将 /  定义为转义符。 行插入： 1i #/串 在">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-13T17:02:18.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单编辑器">
+<meta name="twitter:description" content="简单编辑器Description：要开发一个字符界面的编辑器，对文本的编辑操作是通过输入一个一个的“行编辑命令”完成的。 系统约定： 行编辑命令由命令关键字 命令参数组成。其中，命令关键字都是单一的字母，命令与参数之间使用一个空格进行分割，当命令参数为多个时采用  /  作为参数的分隔符，如果在命令的参数中间出现符号 / ，则用 \/ 表示。我们将 /  定义为转义符。 行插入： 1i #/串 在">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/14/简单编辑器/"/>
+
+
+
+
+
+  <title>简单编辑器 | lion-han</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lion-han</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">a new word</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-love">
+          <a href="/love" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            love
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/14/简单编辑器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wanghan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/lion-han.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lion-han">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">简单编辑器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-14T00:30:11+08:00">
+                2018-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="简单编辑器"><a href="#简单编辑器" class="headerlink" title="简单编辑器"></a>简单编辑器</h3><h4 id="Description："><a href="#Description：" class="headerlink" title="Description："></a>Description：</h4><p>要开发一个字符界面的编辑器，对文本的编辑操作是通过输入一个一个的“行编辑命令”完成的。</p>
+<p><strong>系统约定</strong>： 行编辑命令由<strong>命令关键字 命令参数组</strong>成。其中，命令关键字都是单一的字母，命令与参数之间使用一个空格进行分割，当命令参数为多个时采用  <strong>/ </strong> 作为参数的分隔符，如果在命令的参数中间出现符号 <strong>/</strong> ，则用 <strong>\/</strong> 表示。我们将 <strong>/</strong>  定义为转义符。</p>
+<p><strong>行插入</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i #/串</span><br></pre></td></tr></table></figure>
+<p>在指定行号（&gt; 0）插入一个新行，新行的内容就是命令中给出的串。若插入的行超过了已有的行数，则在最后一行的后面插入一个新行。</p>
+<p><strong>文本替换</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c 被替换串/替换串</span><br></pre></td></tr></table></figure>
+<p>将整个文本中全部被替换串替换为替换串</p>
+<p><strong>行删除</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d #</span><br></pre></td></tr></table></figure>
+<p>其中#为指定的行号（不含#）</p>
+<p><strong>行合并：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f 1/2/3...</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>将行号为 #2 和 #3… 的行连接到行号为 #1 的行的后面，取消原来的 #2 行和 #3 等，合并后 #2 行和 #3 等原来的内容不存在了，被后面的行抵补替代。若指定行号超出正文的范围，则放弃操作（不含#）。</p>
+<p><strong>查找串</strong>： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q #x/串</span><br></pre></td></tr></table></figure>
+<p>查询行号为#x是否出现串，如果出现请输出Yes，否则输出No，保证行号合法，且查询操作在最后出现(含有#) 。</p>
+<p><strong>Input &amp; Output</strong></p>
+<p>输入首先是用[Text]……[/Text]的形式描述的编辑器初始内容，接下来会有若干插入、修改、删除查询操作。请根据描述处理所有操作，并输出最终编辑器内容。然后对于每个查询操作，请按时间轴顺序输出查询结果，注意格式和换行。</p>
+<p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Text]</span><br><span class="line">ab cdefghij klmn20abcedf</span><br><span class="line">ab</span><br><span class="line">iloveyou</span><br><span class="line">a a bb  ccd e</span><br><span class="line">[/Text]</span><br><span class="line">c ab/12345</span><br><span class="line">f 1/2</span><br><span class="line">q #1/def</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">12345 cdefghij klmn2012345cedf12345</span><br><span class="line">iloveyou</span><br><span class="line">a a bb  ccd e</span><br><span class="line">Yes</span><br></pre></td></tr></table></figure>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;algorithm&gt; </span><br><span class="line">using namespace std;</span><br><span class="line">typedef struct NODE</span><br><span class="line">&#123;</span><br><span class="line">	string line; </span><br><span class="line">	struct NODE *next;</span><br><span class="line"> &#125; node;</span><br><span class="line"></span><br><span class="line">node *head;</span><br><span class="line">node *p,*q,*HEAD,*x; </span><br><span class="line"></span><br><span class="line">int  replace_all(string&amp; str,const string&amp; old_value, const string&amp; new_value)   </span><br><span class="line">				&#123;   for(string::size_type   pos(0);pos!=string::npos; pos+=new_value.length())   </span><br><span class="line">						&#123;   </span><br><span class="line">        					if((pos=str.find(old_value,pos))!=string::npos )   </span><br><span class="line">            					str.replace(pos,old_value.length(),new_value);   </span><br><span class="line">        					else   break;   </span><br><span class="line">    					&#125;   </span><br><span class="line">   				 return 0; </span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;	string a,str;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<p>char op;<br>int n=0,num,uu=0,fin[10000],JIAA;;<br>getline(cin,a);<br>//cout&lt;&lt;a&lt;&lt;endl;<br>p=new NODE;<br>//p=(node<em>)malloc(sizeof(node));<br>p-&gt;next=NULL;<br>HEAD=p;<br>head=p;<br>while(1)<br>{<br>    getline(cin,a);<br>    //cout&lt;&lt;a&lt;&lt;endl;<br>    if(a==”[/Text]”) break;<br>    //p=(node</em>)malloc(sizeof(node));<br>    p=new NODE;<br>    p-&gt;line=a;<br>    head-&gt;next=p;<br>    p-&gt;next=NULL;<br>    head=p;<br>    n++;<br>}<br>//while(1){<br>while(~scanf(“%c”,&amp;op))  { </p>
+<p>if(op==’i’) //行插入<br>    {    n++;<br>        getchar();<br>        cin&gt;&gt;num;//cout&lt;&lt;num&lt;&lt;endl;<br>        getchar();<br>        getline(cin,str);//cout&lt;&lt;str&lt;&lt;endl;<br>        for (int i = 1; i &lt; str.length(); i++) //去掉’ / ‘字符<br>            {<br>                if (str[i]==’/‘&amp;&amp;str[i-1]==’\‘)<br>                str.erase(i-1,1);<br>            }</p>
+<pre><code>    p=new NODE;
+    p-&gt;line=str;
+
+    if(num&gt;=n) 
+        {//cout&lt;&lt;1&lt;&lt;endl;
+            head-&gt;next=p; 
+            p-&gt;next=NULL;
+
+        }
+    else {//cout&lt;&lt;2&lt;&lt;endl;
+            q=HEAD;
+            for(int i=1;i&lt;=num;i++) 
+                {    
+                    if(i!=num)
+                        {    q=q-&gt;next;
+
+                        }    
+                    else{
+                        p-&gt;next=q-&gt;next;
+                        q-&gt;next=p;
+
+                    }
+
+                }
+        }
+}
+</code></pre><p>if(op==’d’)<br>    {</p>
+<pre><code>    getchar();
+    cin&gt;&gt;num;
+    if(num&lt;=n) 
+    { 
+    q=HEAD;
+    if(num==n)
+        {
+        for(int i=1;i&lt;=num;i++) 
+                {    
+                    if(i!=num)
+                        q=q-&gt;next;                                                                        
+                    else
+                        q-&gt;next=NULL;                                                                                                                        
+                } 
+        }     
+
+    else for(int i=1;i&lt;=num;i++) 
+                {    
+                    if(i!=num)
+                        q=q-&gt;next;                                                                        
+                    else
+                        q-&gt;next=(q-&gt;next)-&gt;next;                                                                                                                        
+                } } 
+    n--;
+}
+</code></pre><p>if(op==’f’)<br>    {    int jia[20000],jiaa=0,k=0,jj=0; char ch;<br>        getchar();//空格<br>        cin&gt;&gt;num;<br>        getchar();<br>        while(1)<br>            {    cin&gt;&gt;jia[jiaa];</p>
+<pre><code>           ch=getchar();
+           if(jia[jiaa]&gt;n) 
+           {
+               if(ch==&apos;\n&apos;) break; 
+               if(ch==&apos;/&apos;) continue;
+           }
+           jiaa++;    
+           if(ch==&apos;\n&apos;) {                 
+           break; } 
+           //if(ch==&apos;/&apos;) continue;                                                     
+       }
+   JIAA=jiaa;
+   if(num&lt;=n){             
+
+   q=HEAD;             
+   for(int i=1;i&lt;=num;i++) 
+       {
+           q=q-&gt;next;//第 i 个                     
+       }
+
+   while(jiaa--)
+       {    x=HEAD;            
+           for(int i=1;i&lt;=jia[k];i++)     //选定被合并的 
+               x=x-&gt;next;
+           a=x-&gt;line;   //合并 
+           q-&gt;line+=a;    
+           k++;
+       }    
+    k=0;
+    sort(jia,jia+JIAA);
+   while(JIAA--) 
+       {  
+           x=HEAD;        
+           for(int i=1;i&lt;=jia[k]-jj;i++) //删除 合并完的 
+               {    
+                   if(i!=jia[k]-jj)
+                       x=x-&gt;next;                                                                        
+                   else
+                       x-&gt;next=(x-&gt;next)-&gt;next;                                                                                                                        
+               } 
+           n--;
+           jj++;//每次删除行后  行的号码都会 -1 ； 
+           k++;        
+       }                                         
+}
+} 
+</code></pre><p>if(op==’c’)<br>    {<br>        int ss=0;<br>        char betihuan[10000],tihuan[10000];<br>        string one,two;<br>        getchar();<br>        while(1)<br>            {<br>                scanf(“%c”,&amp;betihuan[ss]);<br>                if(betihuan[ss]==’/‘&amp;&amp;ss&gt;0&amp;&amp;betihuan[ss-1]!=’\‘) { ss=ss-1; break; }<br>                if(betihuan[ss]==’/‘&amp;&amp;ss&gt;0&amp;&amp;betihuan[ss-1]==’\‘)<br>                    {<br>                        ss-=1;<br>                        betihuan[ss]=’/‘;<br>                    }<br>                    ss++;<br>            }<br>        for(int i=0;i&lt;=ss;i++)  // 转换格式<br>                one += betihuan[i];    //cout&lt;&lt;one&lt;&lt;endl;<br>        ss=0;<br>        while(1)<br>            {<br>                scanf(“%c”,&amp;tihuan[ss]);<br>                if(tihuan[ss]==’\n’) { ss=ss-1; break; }<br>                if(tihuan[ss]==’/‘&amp;&amp;ss&gt;0&amp;&amp;tihuan[ss-1]==’\‘)<br>                    {<br>                        ss-=1;<br>                        tihuan[ss]=’/‘;<br>                    }<br>                ss++;<br>            }<br>        for(int i=0;i&lt;=ss;i++)    // 转换格式<br>                two += tihuan[i];    //cout&lt;&lt;two&lt;&lt;endl;<br>        q=HEAD;<br>        for(int i=1;i&lt;=n;i++)<br>            {<br>                q=q-&gt;next;<br>                replace_all(q-&gt;line,one,two);<br>                }<br>     }<br>if(op==’q’) //查询<br>    {<br>        getchar();<br>        getchar();<br>        cin&gt;&gt;num;<br>        getchar();<br>        getline(cin,str);<br>        for (int i = 1; i &lt; str.length(); i++) //去掉’ / ‘字符<br>            {<br>                if (str[i]==’/‘&amp;&amp;str[i-1]==’\‘)<br>                str.erase(i-1,1);<br>            }<br>        q=HEAD;<br>        for(int i=1;i&lt;=num;i++)<br>            {<br>                q=q-&gt;next;//第 i 个<br>            }<br>        a=q-&gt;line;<br>        string::size_type idx = a.find(str);  //判断字符串是否包含子字符串<br>        if (idx == string::npos)<br>            fin[uu]=0;//    cout&lt;&lt;”NO”&lt;&lt;”\n”;<br>        else<br>            fin[uu]=1;  //cout&lt;&lt;”YES”&lt;&lt;”\n”;<br>        uu++;<br>    }<br>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#125;				</span><br><span class="line">	q=HEAD-&gt;next;</span><br><span class="line">	//cout&lt;&lt; q-&gt;line&lt;&lt;endl;</span><br><span class="line">	for(int i=1;i&lt;=n;i++) </span><br><span class="line">		&#123;			</span><br><span class="line">			cout&lt;&lt;q-&gt;line&lt;&lt;endl;</span><br><span class="line">			q=q-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	for(int i=0;i&lt;uu;i++)</span><br><span class="line">	   &#123;</span><br><span class="line">	   	if(fin[i]==1) cout&lt;&lt;&quot;Yes&quot;&lt;&lt;&quot;\n&quot;;</span><br><span class="line">	   	else cout&lt;&lt;&quot;No&quot;&lt;&lt;&quot;\n&quot;; </span><br><span class="line">	   &#125;	</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小学期第几波题/" rel="tag"># 小学期第几波题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/30/string-结构体赋值/" rel="next" title="string 结构体赋值">
+                <i class="fa fa-chevron-left"></i> string 结构体赋值
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/lion-han.jpg"
+                alt="wanghan" />
+            
+              <p class="site-author-name" itemprop="name">wanghan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<br>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=139774&auto=1&height=66"></iframe>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单编辑器"><span class="nav-number">1.</span> <span class="nav-text">简单编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Description："><span class="nav-number">1.1.</span> <span class="nav-text">Description：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wanghan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+
+</html>

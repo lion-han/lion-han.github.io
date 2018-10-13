@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="lion-han">
 <meta property="og:description" content="1.新建一个文本文档，重命名为：HelloWorld.java（注意把.txt的后缀名改为.java）(此处我用sublime) 2.写入：类的名字HelloWorld必须和文档名相同 12345public class HelloWorld&amp;#123;	public static void main(String[] args)&amp;#123;		System.out.println(&amp;quot;H">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-23T17:57:55.571Z">
+<meta property="og:updated_time" content="2018-10-13T17:03:06.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 环境配置">
 <meta name="twitter:description" content="1.新建一个文本文档，重命名为：HelloWorld.java（注意把.txt的后缀名改为.java）(此处我用sublime) 2.写入：类的名字HelloWorld必须和文档名相同 12345public class HelloWorld&amp;#123;	public static void main(String[] args)&amp;#123;		System.out.println(&amp;quot;H">
@@ -340,14 +340,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		System.out.println(&quot;HelloWorld&quot;);//尽量不要有中文</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>3.运行：</p>
 <p>PS F:> javac HelloWorld.java<br>PS F:> java <strong>HelloWorld.java</strong><br>错误: 找不到或无法加载主类 HelloWorld.java<br>原因: java.lang.ClassNotFoundException: HelloWorld.java<br>PS F:> java <strong>HelloWorld</strong><br>Hello World!</p>
+<a id="more"></a>
 <h4 id="4-前提-配置环境变量："><a href="#4-前提-配置环境变量：" class="headerlink" title="4.前提 配置环境变量："></a>4.前提 配置环境变量：</h4><ul>
 <li><p>在新建页面，输入变量名“<strong>JAVA_HOME</strong>”；变量值“你的jdk的路径（请参照下图，找到你的安装路径）”，然后点击“确定”；</p>
 </li>
 <li><p>选择“新建”，输入变量名“CLASSPATH”；（此步可省略）</p>
-</li>
-</ul>
-<p>​       变量值：“.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;”。请注意   变量    值中，前面的“点“和”分号”；</p>
-<ul>
+<pre><code>变量值：“.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;”。请注意   变量    值中，前面的“点“和”分号”；
+</code></pre></li>
 <li><p>找到Path，对其进行编辑：添加变量值的  变量值为      ;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; </p>
 </li>
 <li><p>打开cmd, 在命令行输入java –version；如果能显示java的版本信息，则表示配置成功。(也有可能还没成功)</p>
@@ -479,7 +478,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
